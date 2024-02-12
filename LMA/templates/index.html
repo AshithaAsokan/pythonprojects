@@ -1,0 +1,90 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{% block title %}Library Management{% endblock %}</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    {% block extra_css %}{% endblock %}
+    <style>
+        .jumbotron{
+            padding: 3rem 2rem;
+            margin-bottom: 3rem;
+            background-color: rgb(211, 250, 250);
+            border-radius: 0.1rem;
+        }
+        </style>
+</head>
+<body>
+
+{% block content %}
+<nav class="navbar bg-body-tertiary-content-center align-items-Center" style="background-color: #0099cc;">
+    <div class="container-fluid justify-content-center">
+        <span class="navbar-brand mb-0 h1 text-light text-center">
+            <img src="{% static 'icon2.jpg' %}" alt="description" height="35" style="margin-right: 10px;"> LibraManage<span></span>
+        </span>
+    </div>
+</nav>
+
+<div class="container-fluid d-flex justify-content-center align-items-center">
+    <ul class="nav nav-tabs">
+        <li class="nav-item">
+            <a class="nav-link" aria-current="page" href="{% url 'index' %}">Home</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" aria-current="page" href="{% url 'signup' %}">Registration</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="{% url 'login' %}">Login</a>
+        </li>
+    </ul>
+</div>
+<main role="main">
+<div class="jumbotron">
+    <div class="container">
+        <img src="{% static 'icon3.jpg' %}" class="rounded float-start"  alt="description" height="100" style="margin-right: 20px;">
+        <h1 class="display">Hello Readers!</h1>
+        <p>Welcome to Library. We have a large collection of books to cater the reading needs of all kinds of readers.</p>
+    </div>
+</div>
+<div class="container ">
+    <div class="row">
+        <div class="col">
+            <h3> Why reading is important?</h3>
+            <p>Reading is good for you because it improves your focus,memory,empathy and communication skills. It can reduce stress,improve your mental health and help you live longer. Reading also allows you to learn new things to help you succeed in your work and relationships</p>
+        </div>
+        <div class="col">
+            <h3>Key Benefits</h3>
+            <ul>
+                <li>Increase your vocabulary and comprehension skills</li>
+                <li>Reduce stress</li>
+                <li>Improve mental health</li>
+                <li>Prevent cognitive decline</li>
+            </ul>
+        </div>
+        <div class="col">
+            <h3>Thought for the day</h3>
+            <p>"Just don't give up trying to do what you really want to do. Where there is love and inspiration. I don't think you can go wrong"-Ella Fitrgerald</p>
+        </div>
+        <div class="col">
+            
+        </div>
+    </div>
+    <div>
+        <hr>
+    </div>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+{% block extra_scripts %}{% endblock %}
+{% endblock %}
+</main>
+<footer class="container">
+    <p>@Library 2024</p>
+</footer>
+</body>
+</html>

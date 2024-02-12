@@ -1,0 +1,56 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ 
+</head>
+<body>
+
+  <form method="post" action="display">
+      {% csrf_token %}
+      
+      <table border="1" style="width: 50%;"  >
+          <tr>
+            <td>Image </td>
+            <td>Book Id</td>
+            <td>Book Title</td>
+            <td>Publication </td>
+            <td>Edition </td>
+            <td>Price </td>
+            <td>Date </td>
+            <td>Quantity </td>
+            <td>Status </td>
+            <td>Action</td>  <!-- Add this header for the Action column -->
+          </tr>
+         {% for i in lma%}
+          <tr>
+            {% if i.status == 'available' %}
+            <td><img src="{{i.image.url}}" alt="{{i.booktitle}}"style="max-width: 10px; height: auto;"></td>
+            <td>{{i.bookid}}</td>
+            <td>{{i.booktitle}}</td>
+            <td>{{i.publication}}</td>
+            <td>{{i.edition}}</td>
+            <td>{{i.price}}</td>
+            <td>{{i.date}}</td>
+            <td>{{i.quantity}}</td>
+            <td>{{i.status}}</td>
+            <td>
+                <button onclick="approveRequest({bookid})">Add to Bag</button>
+            </td>
+            {% endif %}
+          </tr>
+         {% endfor %}
+      </table>
+  </form>
+
+  <script>
+    function approveRequest(bookId) {
+        // Add your logic to handle adding to the bag when the status is available
+        alert('Adding Book with ID ' + bookId + ' to the Bag!');
+    }
+  </script>
+
+</body>
+</html>
